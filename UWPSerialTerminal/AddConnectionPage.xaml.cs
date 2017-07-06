@@ -14,25 +14,20 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x416
+// O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace UWPSerialTerminal
 {
     /// <summary>
     /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class AddConnectionPage : Page
     {
-        public MainPage()
+        public AddConnectionPage()
         {
             this.InitializeComponent();
 
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-        }
-
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AddConnectionPage));
         }
     }
 }

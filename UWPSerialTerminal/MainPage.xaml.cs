@@ -26,8 +26,6 @@ namespace UWPSerialTerminal
         public MainPage()
         {
             this.InitializeComponent();
-
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)

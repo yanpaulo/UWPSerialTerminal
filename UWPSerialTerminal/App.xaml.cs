@@ -73,7 +73,16 @@ namespace UWPSerialTerminal
                 Window.Current.Activate();
             }
 
+            rootFrame.Navigated += RootFrame_Navigated;
+
             SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+        }
+
+        private void RootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            var frame = sender as Frame;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
         }
 
         /// <summary>

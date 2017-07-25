@@ -8,6 +8,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Accept" Label="Adicionar"></AppBarButton>
+            <AppBarButton Icon="Cancel" Label="Cancelar" Click="AppBarButton_Click"></AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

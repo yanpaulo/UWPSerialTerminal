@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWPSerialTerminal.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -23,6 +24,8 @@ namespace UWPSerialTerminal
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static MainPageViewModel ViewModel => App.Current.Resources["ViewModel"] as MainPageViewModel;
+
         public MainPage()
         {
             this.InitializeComponent();

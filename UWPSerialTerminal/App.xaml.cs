@@ -32,7 +32,7 @@ namespace UWPSerialTerminal
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-
+        
         /// <summary>
         /// Chamado quando o aplicativo é iniciado normalmente pelo usuário final.  Outros pontos de entrada
         /// serão usados, por exemplo, quando o aplicativo for iniciado para abrir um arquivo específico.

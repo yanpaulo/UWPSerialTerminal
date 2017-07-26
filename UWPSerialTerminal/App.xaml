@@ -7,5 +7,9 @@
     RequestedTheme="Light">
     <Application.Resources>
         <vm:MainPageViewModel x:Key="ViewModel"></vm:MainPageViewModel>
+        <Style x:Key="AppTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TitleTextBlockStyle}">
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundAccentBrush}"></Setter>
+            <Setter Property="Margin" Value="8"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWPSerialTerminal.ViewModels;
+using Windows.Devices.Enumeration;
+using Windows.Devices.SerialCommunication;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -23,14 +26,38 @@ namespace UWPSerialTerminal
     /// </summary>
     public sealed partial class AddConnectionPage : Page
     {
+        private AddConnectionViewModel _viewModel;
+
         public AddConnectionPage()
         {
             this.InitializeComponent();
+            _viewModel = (AddConnectionViewModel)DataContext;
+        }
+        
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            string aqs = SerialDevice.GetDeviceSelector();
+            var dis = await DeviceInformation.FindAllAsync(aqs);
+
+            DataContext = _viewModel =
+                new AddConnectionViewModel
+                {
+                    DeviceIds = dis.Select(d => d.Id).ToList(),
+                    Connection = null
+                };
+
+
+        }
+        
+        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
+
     }
 }

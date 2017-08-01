@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.SerialCommunication;
+using Windows.Storage.Streams;
 
 namespace UWPSerialTerminal.ViewModels
 {
@@ -20,6 +22,12 @@ namespace UWPSerialTerminal.ViewModels
             get { return _content; }
             set { _content = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Content")); }
         }
+
+        public SerialDevice Device { get; set; }
+
+        public DataReader DataReaderObject { get; set; }
+
+        public DataWriter DataWriterObject { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

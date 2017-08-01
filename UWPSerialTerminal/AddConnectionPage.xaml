@@ -6,7 +6,9 @@
     xmlns:vm="using:UWPSerialTerminal.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    >
     <Page.DataContext>
         <vm:AddConnectionViewModel></vm:AddConnectionViewModel>
     </Page.DataContext>
@@ -28,17 +30,17 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Device Id</TextBlock>
-            <ComboBox Grid.Row="0" Grid.Column="1" Margin="8" ItemsSource="{Binding DeviceIds}" SelectedItem="{Binding Connection.Id}">
+            <ComboBox Grid.Row="0" Grid.Column="1" Margin="8" ItemsSource="{Binding DeviceIds}">
             </ComboBox>
 
             <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Baud Rate</TextBlock>
-            <ComboBox Grid.Row="1" Grid.Column="1" Margin="8" ItemsSource="{Binding BaudRates}" SelectedItem="{Binding Connection.BaudRate}"></ComboBox>
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="8" ItemsSource="{Binding BaudRates}"></ComboBox>
         </Grid>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Accept" Label="Adicionar"></AppBarButton>
-            <AppBarButton Icon="Cancel" Label="Cancelar" Click="AppBarButton_Click"></AppBarButton>
+            <AppBarButton Icon="Accept" Label="Adicionar" Click="AcceptButton_Click"></AppBarButton>
+            <AppBarButton Icon="Cancel" Label="Cancelar" Click="CancelButton_Click"></AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

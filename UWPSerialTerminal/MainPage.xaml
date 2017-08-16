@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{StaticResource ViewModel}"
     mc:Ignorable="d">
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -36,16 +36,35 @@
             </controls:MasterDetailsView.ItemTemplate>
             <controls:MasterDetailsView.DetailsTemplate>
                 <DataTemplate x:DataType="vm:DeviceConnection">
-                    <RelativePanel Margin="24">
-                        <Ellipse x:Name="FromEllipse" Height="50" Width="50" Fill="Gray"></Ellipse>
-                        <TextBlock Text="{Binding Id}" Style="{ThemeResource SubtitleTextBlockStyle}" RelativePanel.RightOf="FromEllipse" Margin="12,-6,0,0"/>
-                        <StackPanel x:Name="SubjectLine" Orientation="Horizontal" RelativePanel.Below="FromEllipse">
-                            <TextBlock Text="Baud rate: " Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock  Text="{Binding BaudRate}" Style="{ThemeResource BodyTextBlockStyle}"/>
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="4">
+                            <TextBlock Text="{Binding Id}" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Baud rate: " Style="{ThemeResource BodyTextBlockStyle}" />
+                                <TextBlock  Text="{Binding BaudRate}" Style="{ThemeResource BodyTextBlockStyle}" Margin="4,0" />
+                            </StackPanel>
                         </StackPanel>
-                        <TextBlock x:Name="Body" Text="{Binding Content}" Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="Wrap" RelativePanel.Below="SubjectLine" Margin="0,12,0,0"/>
-                        
-                    </RelativePanel>
+
+                        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="4"
+                                 IsReadOnly="True"
+                                Text="{Binding Content}" />
+
+                        <TextBox Grid.Row="2" Grid.Column="0" Margin="4"></TextBox>
+                        <Button Grid.Row="2" Grid.Column="1" Margin="4">Enviar</Button>
+                    </Grid>
+
+
                 </DataTemplate>
             </controls:MasterDetailsView.DetailsTemplate>
             <controls:MasterDetailsView.NoSelectionContentTemplate>
@@ -63,6 +82,7 @@
         </controls:MasterDetailsView>
         <CommandBar Grid.Row="2">
             <AppBarButton Icon="Add" Click="AppBarButton_Click"></AppBarButton>
+            <AppBarButton Icon="Delete" Click="AppBarButton_Click"></AppBarButton>
         </CommandBar>
     </Grid>
 </Page>

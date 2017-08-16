@@ -45,13 +45,17 @@ namespace UWPSerialTerminal
                     DeviceIds = dis.Select(d => d.Id).ToList(),
                     Connection = null
                 };
-
-
         }
         
-        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        private async void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
+            var connection = _viewModel.Connection;
+            connection.Device = await SerialDevice.FromIdAsync(connection.Id);
 
+            MainPage.ViewModel.DeviceConnections.Add(connection);
+            MainPage.ViewModel.SelectedDeviceConnection = connection;
+
+            Frame.GoBack();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

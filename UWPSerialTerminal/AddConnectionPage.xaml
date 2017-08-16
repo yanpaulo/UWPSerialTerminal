@@ -30,11 +30,11 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Device Id</TextBlock>
-            <ComboBox Grid.Row="0" Grid.Column="1" Margin="8" ItemsSource="{Binding DeviceIds}">
+            <ComboBox Grid.Row="0" Grid.Column="1" Margin="8" ItemsSource="{Binding DeviceIds}" SelectedItem="{Binding Connection.Id}">
             </ComboBox>
 
             <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Baud Rate</TextBlock>
-            <ComboBox Grid.Row="1" Grid.Column="1" Margin="8" ItemsSource="{Binding BaudRates}"></ComboBox>
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="8" ItemsSource="{Binding BaudRates}"  SelectedItem="{Binding Connection.BaudRate}"></ComboBox>
         </Grid>
     </Grid>
     <Page.BottomAppBar>
